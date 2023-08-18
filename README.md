@@ -1,8 +1,7 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Esse projeto é uma lista de tarefas simples, criada utilizando o Framework Next.js 13
+## Iniciando o Projeto
 
-## Getting Started
-
-First, run the development server:
+execute o comando para iniciar o servidor de desenvolvimento:
 
 ```bash
 npm run dev
@@ -12,23 +11,29 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra [http://localhost:3000](http://localhost:3000) para conferir o resultado.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Linguagem
+Typescript
+## Bibliotecas utilizadas
+- [Tailwind](https://tailwindcss.com/) - Estilo do sistema
+- [Zod Validation](https://zod.dev/?id=introduction) - Validação de Formulários
+- [Primsa](https://www.prisma.io/) - ORM
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Arquivos de Interesse
 
-## Learn More
+- [schema.prisma](prisma/schema.prisma) - Contém as definições do esquema da base de dados utilizando a linguagem Prisma. Define a estrutura e os relacionamentos dos dados, incluindo as tabelas e os campos necessários.
+----
+- [actions.tsx](src/app/todos/actions.tsx) - Contém operações de criação, leitura, atualização e exclusão (CRUD) relacionadas à tabela de tarefas no lado do servidor. Ele gerencia as interações com o banco de dados e executa as ações correspondentes.
+----
+- [[id]](src/app/todos/[id]) - Esta pasta contém os arquivos relacionados à página que renderiza uma tarefa específica, seguindo a convenção de arquivos (**error.tsx, loading.tsx, page.tsx**)
+    - [error.tsx](src/app/todos/[id]/error.tsx) - Arquivo responsável por exibir erros ao usuário caso qualquer erro aconteça no lado do servidor
+    - [loading.tsx](src/app/todos/[id]/loading.tsx) - Componente que é exibido para o usuário antes enquanto as opeções do servidor não finalizarem
+    - [page.tsx](src/app/todos/[id]/page.tsx) - Página final que é renderizada caso não haja nenhum erro
+----
+- [validation/todo.tsx](src/app/lib/validation/todo.tsx) - Contém o objeto de validação utilizado em ambos os lados, tanto no lado do cliente quanto no lado do servidor. Oferece uma estrutura consistente para validar os dados relacionados às tarefas. Essa abordagem garante que as regras de validação sejam compartilhadas e mantidas de maneira unificada em todo o projeto, proporcionando consistência e eficiência no processo de validação.
 
-To learn more about Next.js, take a look at the following resources:
+    
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
