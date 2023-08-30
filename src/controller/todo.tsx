@@ -63,7 +63,7 @@ export async function updateTodo(newTodo: { todoId?: string, title: string, comp
     try {
         const validation = TodoSchema.safeParse(newTodo)
         if (!validation.success) {
-            return validation.error.issues.map(issue => issue.message)
+            return validation.error.issues.map(issue => issue.message);
         }
 
         const todoId = newTodo.todoId
@@ -118,7 +118,7 @@ export async function createTodo(newTodo: { title: string }) {
 
         const validation = TodoSchema.safeParse(newTodo)
         if (!validation.success) {
-            return validation.error.issues.map(issue => issue.message)
+            return validation.error.issues.map(issue => issue.message);
         }
 
         const title = newTodo.title

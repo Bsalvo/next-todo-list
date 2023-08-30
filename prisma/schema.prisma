@@ -18,10 +18,3 @@ model Todo {
   updatedAt DateTime @updatedAt
 }
 
-model Client {
-  id String @id @default(uuid())
-  name String
-  age Int
-  document  String 
-
-}
